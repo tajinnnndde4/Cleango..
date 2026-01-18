@@ -1,0 +1,592 @@
+!doctype html> 
+<html lang="es">  
+<style>
+    /* Decoración de hojas estilo laurel */
+    .laurel-border {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .laurel-border img {
+        position: absolute;
+        opacity: 0.25; /* Transparencia para que no estorbe */
+        filter: drop-shadow(0px 0px 4px #0003);
+    }
+
+    /* Esquina superior izquierda */
+    .laurel-top-left {
+        top: 0;
+        left: 0;
+        width: 180px;
+    }
+
+    /* Esquina superior derecha */
+    .laurel-top-right {
+        top: 0;
+        right: 0;
+        width: 180px;
+        transform: scaleX(-1); /* Invertir imagen */
+    }
+
+    /* Esquina inferior izquierda */
+    .laurel-bottom-left {
+        bottom: 0;
+        left: 0;
+        width: 180px;
+        transform: scaleY(-1); /* Volteada abajo */
+    }
+
+    /* Esquina inferior derecha */
+    .laurel-bottom-right {
+        bottom: 0;
+        right: 0;
+        width: 180px;
+        transform: scaleX(-1) scaleY(-1);
+    }
+</style>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CleanGo — Limpieza fácil, en un clic</title>
+  <meta name="description" content="CleanGo SV - Reservá limpieza pagando solo $3 de reserva. Personal verificado. Casas, oficinas y limpiezas profundas." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#1A73E8;
+      --green:#00C853;
+      --dark:#0f2a3a;
+      --bg:#f6fbff;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box;font-family:'Poppins',sans-serif}
+    body{margin:0;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+    .wrap{max-width:var(--maxw);margin:18px auto;padding:20px}
+    header{display:flex;gap:18px;align-items:center}
+    header img.logo{width:86px;height:86px;object-fit:contain;border-radius:8px;background:#fff;padding:6px;box-shadow:0 8px 20px rgba(10,30,50,0.06)}
+    h1{margin:0;font-size:28px;color:var(--dark)}
+    .slogan{color:rgba(15,42,58,0.75);margin-top:6px}
+    .hero{display:flex;gap:24px;align-items:center;margin-top:18px}
+    .hero .left{flex:1;padding:20px;background:linear-gradient(180deg,#ffffff,#f7fbff);border-radius:12px;box-shadow:0 10px 30px rgba(10,30,50,0.06)}
+    .badge{display:inline-block;padding:6px 12px;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--green));color:#fff;font-weight:700;margin-bottom:12px}
+    .price-row{display:flex;gap:12px;align-items:center;margin-top:12px}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--blue),var(--green));color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+    .btn.ghost{background:transparent;border:2px solid rgba(0,0,0,0.06);color:var(--dark)}
+    .hero .right{width:420px}
+    .card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 8px 20px rgba(10,30,50,0.04)}
+    .catalog{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
+    .service{background:#fff;padding:12px;border-radius:10px;border:1px solid rgba(10,30,50,0.03)}
+    .service h3{margin:0;font-size:16px;color:var(--dark)}
+    .service p{margin:6px 0;color:rgba(0,0,0,0.6);font-size:14px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .how{margin-top:20px;padding:18px;background:#fff;border-radius:10px}
+    .faq{margin-top:16px;background:#fff;padding:18px;border-radius:10px}
+    footer{margin-top:26px;padding:18px;text-align:center;color:rgba(0,0,0,0.6)}
+    label{font-weight:600;font-size:14px}
+    input[type=text], input[type=date], input[type=time], textarea, select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);margin-top:8px}
+    .small{font-size:13px;color:rgba(0,0,0,0.6)}
+    .note{font-size:13px;color:rgba(0,0,0,0.55);margin-top:8px}
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{flex-direction:column}
+      .hero .right{width:100%}
+      .catalog{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <header>
+      <img class="logo" src="logo.png" alt="CleanGo logo" onerror="this.style.display='none'">
+      <div>
+        <h1>CleanGo</h1>
+        <div class="slogan">Limpieza fácil, en un clic.</div>
+        <div class="note">Reservá pagando solo <strong>$3</strong>. El resto se paga en efectivo al cleaner.</div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="left">
+        <div class="badge">Lanzamiento SV</div>
+        <h2>Reservá limpieza en minutos — Sin vueltas</h2>
+        <p class="small">Elegí el tipo de limpieza, pagá $3 de reserva por Chivo/Tigo/Transferencia y nosotros asignamos al cleaner verificado más cercano. El resto lo pagás directamente al cleaner en efectivo al finalizar.</p>
+
+        <div class="price-row">
+          <a href="#" class="btn" id="open-book">Reservar limpieza</a>
+          <a href="#catalogo" class="btn ghost">Ver servicios</a>
+        </div>
+
+        <div class="how">
+          <h3 style="margin-top:0">Cómo funciona (3 pasos)</h3>
+          <ol>
+            <li>Reservás con $3 — confirmás por WhatsApp.</li>
+            <li>Enviamos al cleaner verificado al horario acordado.</li>
+            <li>Cliente paga el resto en efectivo al terminar. Vos recibís la confirmación.</li>
+          </ol>
+          <p class="note"><strong>Teléfono / WhatsApp:</strong> <span id="whatsnum">+50360202238</span></p>
+        </div>
+      </div>
+
+      <aside class="right">
+        <div class="card">
+          <h3 style="margin-top:0">Reservá ahora</h3>
+
+          <!-- Booking form (generates WhatsApp message) -->
+          <div style="margin-top:8px">
+            <label>Nombre</label>
+            <input id="bk-name" type="text" placeholder="Tu nombre completo">
+            <label>Tipo de limpieza</label>
+            <select id="bk-type">
+              <option value="Limpieza Básica – Casa – $15">Limpieza Básica – Casa – $15</option>
+              <option value="Limpieza Profunda – Casa – $25">Limpieza Profunda – Casa – $25</option>
+              <option value="Oficina Pequeña (hasta 10) – $18">Oficina Pequeña (hasta 10) – $18</option>
+              <option value="Oficina Mediana (11–25) – $25">Oficina Mediana (11–25) – $25</option>
+              <option value="Oficina Grande (25+) – $35">Oficina Grande (25+) – $35</option>
+              <option value="Solo Baño – $8">Solo Baño – $8</option>
+              <option value="Solo Habitación – $10">Solo Habitación – $10</option>
+              <option value="Solo Cocina – $12">Solo Cocina – $12</option>
+            </select>
+
+            <label>Dirección</label>
+            <input id="bk-address" type="text" placeholder="Dirección/Colonia/Edificio">
+            <label>Fecha</label>
+            <input id="bk-date" type="date">
+            <label>Hora</label>
+            <input id="bk-time" type="time">
+            <label>Teléfono (WhatsApp)</label>
+            <input id="bk-phone" type="text" placeholder="+50360202238">
+            <div style="margin-top:10px">
+              <a id="bk-whatsapp" class="btn" href="#">Enviar reserva por WhatsApp</a>
+              <div class="note">Se generará un mensaje en WhatsApp para confirmar y pagar los $3 de reserva.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Aplicar como cleaner</h3>
+          <p class="small">Traé tu kit: escoba, trapeador, guantes, productos. Pagos en efectivo por servicio.</p>
+          <label>Nombre</label>
+          <input id="cl-name" type="text" placeholder="Tu nombre">
+          <label>Zona</label>
+          <input id="cl-zone" type="text" placeholder="Zona donde podés trabajar">
+          <label>Teléfono (WhatsApp)</label>
+          <input id="cl-phone" type="text" placeholder="+50360202238">
+          <label>Experiencia (breve)</label>
+          <input id="cl-exp" type="text" placeholder="Años o breve descripción">
+          <div style="margin-top:10px">
+            <a id="cl-whatsapp" class="btn" href="#">Enviar aplicación por WhatsApp</a>
+            <div class="note">Recibiremos tu solicitud y te contactaremos para verificación.</div>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <!-- CATALOGO -->
+    <section id="catalogo" style="margin-top:20px">
+      <h2>Servicios y precios</h2>
+      <div class="catalog">
+        <div class="service">
+          <h3>Limpieza Básica – Casa</h3>
+          <p>$15 · Reserva $3 · Pago al cleaner $12</p>
+          <p class="small">Barrido, trapeado, baños, cocina, superficies. 1.5–2 hrs</p>
+        </div>
+        <div class="service">
+          <h3>Limpieza Profunda – Casa</h3>
+          <p>$25 · Reserva $3 · Pago al cleaner $22</p>
+          <p class="small">Incluye limpieza detrás de muebles, cocina a detalle. 2–4 hrs</p>
+        </div>
+
+        <div class="service">
+          <h3>Oficina Pequeña (hasta 10)</h3>
+          <p>$18 · Reserva $3 · Pago al cleaner $15</p>
+          <p class="small">Pisos, baños, escritorios. 1–2 hrs</p>
+        </div>
+        <div class="service">
+          <h3>Oficina Mediana (11–25)</h3>
+          <p>$25 · Reserva $3 · Pago al cleaner $22</p>
+          <p class="small">Áreas comunes, desinfección. 2–3 hrs</p>
+        </div>
+
+        <div class="service">
+          <h3>Oficina Grande (25+)</h3>
+          <p>$35 · Reserva $3 · Pago al cleaner $32</p>
+          <p class="small">Pisos grandes, baños múltiples, cristales. 3–5 hrs</p>
+        </div>
+        <div class="service">
+          <h3>Solo Baño</h3>
+          <p>$8 · Reserva $3 · Pago al cleaner $5</p>
+          <p class="small">Inodoro, lavamanos, azulejos. 30–45 min</p>
+        </div>
+
+        <div class="service">
+          <h3>Solo Habitación</h3>
+          <p>$10 · Reserva $3 · Pago al cleaner $7</p>
+          <p class="small">Barrido, trapeado, organización ligera. 45–60 min</p>
+        </div>
+        <div class="service">
+          <h3>Solo Cocina</h3>
+          <p>$12 · Reserva $3 · Pago al cleaner $9</p>
+          <p class="small">Superficies, estufa, fregadero. 1–1.5 hrs</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION PAGOS -->
+    <section style="margin-top:20px">
+      <h2>Formas de pago (reserva $3)</h2>
+      <div class="grid3">
+        <div class="card">
+          <h3>Chivo Wallet</h3>
+          <p class="small">Transferí a nuestro Chivo ID y mandá captura. Número: <strong id="chivo">+50360202238</strong></p>
+          <p class="note">Al recibir la confirmación de la reserva (captura) asignamos el cleaner.</p>
+        </div>
+        <div class="card">
+          <h3>Tigo Money</h3>
+          <p class="small">Usá Tigo Money y enviá comprobante por WhatsApp al mismo número.</p>
+        </div>
+        <div class="card">
+          <h3>Transferencia / BAC</h3>
+          <p class="small">Podés transferir desde BAC o cualquier banco. Enviá captura y confirmamos.</p>
+        </div>
+      </div>
+      <p class="note">*El pago final al cleaner se realiza en efectivo al finalizar el servicio.*</p>
+    </section>
+
+    <!-- FAQ y reglas / cleaners -->
+    <section style="margin-top:20px" class="faq">
+      <h2>Preguntas frecuentes & Reglas para cleaners</h2>
+      <h4>¿Qué hago si quiero cancelar?</h4>
+      <p class="small">Cancelá al menos con 24 horas de anticipación para devolución parcial. Si cancelás sin aviso puede perderse la reserva.</p>
+
+      <h4>Reglas para cleaners (resumen)</h4>
+      <ul class="small">
+        <li>Cada cleaner debe traer su kit: escoba, trapeador, cubeta, guantes, paños, limpiadores.</li>
+        <li>Llegar puntual (tolerancia 10 min).</li>
+        <li>Enviar fotos antes/después.</li>
+        <li>No pedir pagos adicionales al cliente (salvo materiales previamente autorizados).</li>
+      </ul>
+    </section>
+<!-- CleanGo Website - with Subscription Model B -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CleanGo - Limpieza Fácil en un Clic</title>
+    <style>
+        body 
+<div class="laurel-border">
+    <img src="https://i.imgur.com/1qMqGIk.png" class="laurel-top-left">
+    <img src="https://i.imgur.com/1qMqGIk.png" class="laurel-top-right">
+    <img src="https://i.imgur.com/1qMqGIk.png" class="laurel-bottom-left">
+    <img src="https://i.imgur.com/1qMqGIk.png" class="laurel-bottom-right">
+</div>
+{
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f9ff;
+            color: #222;
+        }
+        header {
+            background: #1A73E8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: white;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1A73E8;
+            font-weight: bold;
+        }
+        .section {
+            padding: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .title {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #1A73E8;
+        }
+        .button {
+            display: inline-block;
+            background: #00C853;
+            padding: 15px 25px;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+        .sub-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .flex {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        footer {
+            background: #1A73E8;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>CleanGo</h1>
+    <p>Limpieza fácil, en un clic</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#suscripciones">Suscripciones</a>
+    <a href="#unirse">Unirse como Cleaner</a>
+    <a href="operaciones.html">Operaciones</a>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="precios.html">Precios</a>
+    <a href="unete.html">Únete</a>
+    <a href="contacto.html">Contacto</a>
+    <a href="operaciones.html"><strong>Operaciones</strong></a>
+
+</nav>
+
+<section id="inicio" class="section">
+    <h2 class="title">Bienvenido a CleanGo</h2>
+    <p>La plataforma salvadoreña donde encontrás limpieza confiable, rápida y segura. Todo desde tu teléfono.</p>
+</section>
+
+<section id="servicios" class="section">
+    <h2 class="title">Servicios de Limpieza</h2>
+    <div class="flex">
+        <div class="card">
+            <h3>Limpieza Básica</h3>
+            <p>Casas, cuartos, apartamentos pequeños.</p>
+            <p><strong>$15 - $25</strong></p>
+        </div>
+        <div class="card">
+            <h3>Limpieza Profunda</h3>
+            <p>Cocinas, baños, oficinas pequeñas.</p>
+            <p><strong>$25 - $45</strong></p>
+        </div>
+        <div class="card">
+            <h3>Oficinas</h3>
+            <p>Espacios de trabajo hasta 15 personas.</p>
+            <p><strong>$40 - $120</strong></p>
+        </div>
+    </div>
+</section>
+
+<section id="suscripciones" class="section">
+    <h2 class="title">Suscripciones</h2>
+    <p>Activá tu mes cuando vos querás. Sin contratos. Sin pagos automáticos. Simple y rápido.</p>
+
+    <div class="sub-box">
+        <h3>Cliente – Activar Mes ($7)</h3>
+        <p>Solicitá limpiezas ilimitadas durante 30 días.</p>
+        <a class="button" href="https://wa.me/50360202238?text=Hola%2C%20quiero%20activar%20mi%20mes%20como%20cliente%20en%20CleanGo">Activar Mes Cliente</a>
+    </div>
+
+    <div class="sub-box">
+        <h3>Cleaner – Activar Mes ($7)</h3>
+        <p>Recibí trabajos y formá parte del equipo CleanGo durante 30 días.</p>
+        <a class="button" href="https://wa.me/50360202238?text=Hola%2C%20quiero%20activar%20mi%20mes%20como%20cleaner%20en%20CleanGo">Activar Mes Cleaner</a>
+    </div>
+</section>
+
+<section id="unirse" class="section">
+    <h2 class="title">Unite como Cleaner</h2>
+    <p>Ganá dinero limpiando casas y oficinas. Manejá tus horarios. Trabajá cuando vos querás.</p>
+
+    <div class="sub-box">
+        <h3>Requisitos</h3>
+        <ul>
+            <li>Escoba, trapeador, cubeta</li>
+            <li>Guantes, paños, esponjas</li>
+            <li>Detergentes y desinfectantes</li>
+            <li>Buena presentación y puntualidad</li>
+        </ul>
+        <a class="button" href="https://wa.me/50360202238?text=Hola%2C%20quiero%20unirme%20como%20cleaner%20en%20CleanGo">Unirme Ahora</a>
+    </div>
+</section>
+
+<footer>
+    <p>CleanGo © 2025 - Limpieza fácil, en un clic.</p>
+</footer>
+
+</body>
+</html>
+
+    <footer>
+      <div class="small">© CleanGo · Limpieza fácil, en un clic · San Salvador</div>
+    </footer>
+  </div>
+
+<script>
+  // === Cambia estos valores por tu número real ===
+  const WHATS_NUM = '+50360202238'; // reemplaza por tu número con código +503
+  const CHIVO_NUM = '+50360202238'; // reemplaza por tu ID/chivo si es distinto
+  document.getElementById('whatsnum').innerText = WHATS_NUM;
+  document.getElementById('chivo').innerText = CHIVO_NUM;
+
+  // Booking button -> genera mensaje WhatsApp con campos del form
+  function makeWhatsURL(phone, text){
+    const encoded = encodeURIComponent(text);
+    return 'https://wa.me/' + phone.replace(/\+/g,'') + '?text=' + encoded;
+  }
+
+  document.getElementById('bk-whatsapp').addEventListener('click', function(e){
+    e.preventDefault();
+    const name = document.getElementById('bk-name').value || '[Nombre]';
+    const type = document.getElementById('bk-type').value;
+    const address = document.getElementById('bk-address').value || '[Dirección]';
+    const date = document.getElementById('bk-date').value || '[Fecha]';
+    const time = document.getElementById('bk-time').value || '[Hora]';
+    const phone = document.getElementById('bk-phone').value || '[Teléfono]';
+    const msg = `Reservación CleanGo%0ACliente: ${name}%0AServicio: ${type}%0ADirección: ${address}%0AFecha: ${date}%0AHora: ${time}%0AContacto: ${phone}%0APago reserva: $3 (enviar comprobante por WhatsApp)`;
+    const url = makeWhatsURL(WHATS_NUM, msg);
+    window.open(url,'_blank');
+  });
+
+  // Cleaner application -> WhatsApp
+  document.getElementById('cl-whatsapp').addEventListener('click', function(e){
+    e.preventDefault();
+    const name = document.getElementById('cl-name').value || '[Nombre]';
+    const zone = document.getElementById('cl-zone').value || '[Zona]';
+    const phone = document.getElementById('cl-phone').value || '[Teléfono]';
+    const exp = document.getElementById('cl-exp').value || '[Experiencia]';
+    const msg = `Solicitud Cleaner - CleanGo%0ANombre: ${name}%0AZona: ${zone}%0ATel: ${phone}%0AExperiencia: ${exp}%0ADocumentos: enviar foto de DUI y 2 referencias`;
+    const url = makeWhatsURL(WHATS_NUM, msg);
+    window.open(url,'_blank');
+  });
+
+  // Scroll to booking area when clicking main btn
+  document.getElementById('open-book').addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({top:250,behavior:'smooth'});
+  });
+</script>
+    <!-- SECCION UNETE COMO CLEANER (EXTRA) -->
+    <section id="unete" style="margin-top:40px">
+      <h2>Únete a nuestro equipo de Cleaners</h2>
+      <div style="
+        background:#fff;
+        padding:22px;
+        border-radius:12px;
+        box-shadow:0 8px 20px rgba(10,30,50,0.05);
+      ">
+        <p class="small">
+          ¿Querés ganar extra cada semana limpiando casas u oficinas?  
+          Con CleanGo podés recibir trabajos cerca de tu zona y pagos el mismo día.
+        </p>
+
+        <h3>Requisitos</h3>
+        <ul class="small">
+          <li>Ser mayor de 18 años.</li>
+          <li>Tener WhatsApp activo.</li>
+          <li>Contar con tu propio kit (escoba, trapeador, guantes, detergente, paños, etc.).</li>
+          <li>Disponibilidad de transporte (bus o propio).</li>
+          <li>Puntualidad y buena presentación.</li>
+        </ul>
+
+        <h3>Beneficios</h3>
+        <ul class="small">
+          <li>Pagos en efectivo por servicio.</li>
+          <li>Elegís qué días querés trabajar.</li>
+          <li>Recibís clientes cerca de tu zona.</li>
+          <li>Bonos por buen desempeño.</li>
+        </ul>
+
+        <h3>Aplicá en 1 minuto</h3>
+        <p class="small">Completá el formulario y se enviará tu solicitud por WhatsApp.</p>
+
+        <label>Nombre completo</label>
+        <input id="apply-name" type="text" placeholder="Tu nombre">
+
+        <label>Zona donde podés trabajar</label>
+        <input id="apply-zone" type="text" placeholder="Ej: Soyapango, Ilopango, SS, etc.">
+
+        <label>Teléfono (WhatsApp)</label>
+        <input id="apply-phone" type="text" placeholder="+50360202238">
+
+        <label>Experiencia</label>
+        <input id="apply-exp" type="text" placeholder="Años o breve descripción">
+
+        <label>¿Tenés tu propio kit?</label>
+        <select id="apply-kit">
+          <option value="Sí, tengo todo mi equipo">Sí</option>
+          <option value="Tengo parte del equipo">Tengo parte</option>
+          <option value="No, pero puedo conseguirlo">No, pero puedo conseguirlo</option>
+        </select>
+
+        <div style="margin-top:12px">
+          <a id="apply-whatsapp" class="btn" href="#">Enviar aplicación por WhatsApp</a>
+        </div>
+
+        <p class="note">Responderemos en máximo 24 horas. Se requiere foto de DUI y 2 referencias personales.</p>
+      </div>
+    </section>
+
+    <script>
+      // Formulario extra "Únete a CleanGo"
+      document.getElementById('apply-whatsapp').addEventListener('click', function(e){
+        e.preventDefault();
+        const name = document.getElementById('apply-name').value || '[Nombre]';
+        const zone = document.getElementById('apply-zone').value || '[Zona]';
+        const phone = document.getElementById('apply-phone').value || '[Teléfono]';
+        const exp = document.getElementById('apply-exp').value || '[Experiencia]';
+        const kit = document.getElementById('apply-kit').value;
+
+        const msg = 
+`Solicitud para ser Cleaner – CleanGo
+Nombre: ${name}
+Zona: ${zone}
+Teléfono: ${phone}
+Experiencia: ${exp}
+Kit propio: ${kit}
+Documentos: enviar DUI y 2 referencias`;
+
+        const url = "https://wa.me/" + WHATS_NUM.replace(/\+/g, "") + "?text=" + encodeURIComponent(msg);
+        window.open(url, '_blank');
+      });
+    </script>
+
+</body>
+</html>
